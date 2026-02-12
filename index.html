@@ -1,34 +1,44 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- mixed content error on Azure -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- Fix for mixed content error on Azure -->
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    </head>
+    <body>
+        <div style="margin-left: 25px;">
+            <h1>Zmanim App</h1>
+            <div>
+                <div style="margin-bottom: 10px">
+                    <label for="place">Enter Zip Code:</label>
+                    <input id="location_identifier" type="text" name="place" />
+                </div>
+                <div style="margin-bottom: 10px">
+                    <label for="date">Select Date:</label>
+                    <input id="date" type="date" name="date" />
+                </div>
+                <button style="margin-bottom: 8px;" type="button" onclick="fetchZmanim()">Find Zmanim</button>
 
-  </head>
-  <body>
-    <h1>Zmanim App</h1>
-    <div>
+                <div style="margin-bottom: 8px;">
+                  For anohter cool zmanim tool - one that interacts with google maps - 
+                    <a href="https://zmanimmap.infinityfreeapp.com/" target="_blank">
+                        click here!
+                    </a>
+                </div>
+            </div>
 
-        <div>
-            <label for="place">Enter Zip Code:</label>
-            <input id="location_identifier" type="text" name="place" />
+            <div>
+                <h3 id="locationTitle"></h3>
+                <div id="zmanimDisplay"></div>
+                <div id="errorDisplay"></div>
+            </div>
+            <div>
+              The zmanim on this site are retrieved from <a href="https://www.hebcal.com/home/1663/zmanim-halachic-times-api">Hebcal.com</a>
+            </div>
         </div>
-        <div>
-            <label for="date">Select Date:</label>
-            <input id="date" type="date" name="date" />
-        </div>
-        <button type="button" onclick="fetchZmanim()">Find Zmanim</button>
-    </div>
-    
-    <div>
-      <h3 id="locationTitle"></h3>
-      <div id="zmanimDisplay"></div>
-      <div id="errorDisplay"></div>
-    </div>
-  </body>
-  
-  <script src="static/app.js"></script>
+    </body>
+
+    <script src="static/app.js"></script>
 </html>
