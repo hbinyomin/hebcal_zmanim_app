@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Zmanim App</h1>
+    <div>
+
+        <div>
+            <label for="place">Enter Zip Code:</label>
+            <input id="location_identifier" type="text" name="place" />
+        </div>
+        <div>
+            <label for="date">Select Date:</label>
+            <input id="date" type="date" name="date" />
+        </div>
+        <button type="button" onclick="fetchZmanim()">Find Zmanim</button>
+    </div>
+    
+    <div>
+      <h3 id="locationTitle"></h3>
+      <div id="zmanimDisplay"></div>
+      <div id="errorDisplay"></div>
+    </div>
+  </body>
+  
+  <script src="static/app.js"></script>
+</html>
