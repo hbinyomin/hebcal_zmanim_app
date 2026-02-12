@@ -13,14 +13,16 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 def home():
     return FileResponse('index.html')
 
-
 @app.get('/api/zmanim')
 def get_zmanim(location_identifier, date="2026-02-11"):
     # For now, the only way to use this endpoint is with a zip code.
     # Further development would allow user to enter a place name, and the endpoint would fetch a lookup from geoNames
 
-    params = {"cfg":"json","sec":1,"zip":location_identifier,"date":date}
+    # Hebcal seems to truncate beyond 5 digits, so will not error withouth this line of code
+    if (len(location_identifier)!=5):
+        raise HTTPException(status_code=400, detail="Zip code must be exaclty 5 numbers long.")
     
+    params = {"cfg":"json","sec":1,"zip":location_identifier,"date":date}
     try:
         res = requests.get(HEBCAL_URL,params=params)
         data = res.json()

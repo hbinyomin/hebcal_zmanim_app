@@ -2,12 +2,13 @@
 const zmanimDisplay = document.getElementById("zmanimDisplay");
 const locationTitle = document.getElementById("locationTitle");
 const errorDisplay = document.getElementById("errorDisplay");
-
+const BASE_URL = "https://zmanimapp-bjc9b7e3dcd9epgy.mexicocentral-01.azurewebsites.net/";
 async function fetchZmanim() {
   const location_identifier = document.getElementById("location_identifier").value;
   const date = document.getElementById("date").value;
 
-  const res = await fetch(`/api/zmanim/?location_identifier=${location_identifier}&date=${date}`);
+
+  const res = await fetch(`${BASE_URL}/api/zmanim/?location_identifier=${location_identifier}&date=${date}`);
   if (!res.ok) {
     const errorData = await res.json();
     displayErrorMessage(errorData);
