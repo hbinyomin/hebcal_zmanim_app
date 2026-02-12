@@ -1,4 +1,5 @@
-fastapi
+fastapi==0.128.8
 requests
 gunicorn
 uvicorn
+starlette==0.52.1

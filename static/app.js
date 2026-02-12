@@ -4,9 +4,6 @@ const locationTitle = document.getElementById("locationTitle");
 const errorDisplay = document.getElementById("errorDisplay");
 const datePicker = document.getElementById('date')
 
-const BASE_URL = "https://zmanimapp-bjc9b7e3dcd9epgy.mexicocentral-01.azurewebsites.net/";
-
-
 setDatePicker();
 
 function setDatePicker() {
@@ -20,8 +17,7 @@ async function fetchZmanim() {
   const date = document.getElementById("date").value;
 
   try {
-    const res = await fetch(`${BASE_URL}/api/zmanim/?location_identifier=${encodeURIComponent(location_identifier)}&date=${date}`);
-    // const res = await fetch(`/api/zmanim/?location_identifier=${encodeURIComponent(location_identifier)}&date=${date}`);
+    const res = await fetch(`/api/zmanim/?location_identifier=${encodeURIComponent(location_identifier)}&date=${date}`);
     if (!res.ok) {
       const errorData = await res.json();
       displayErrorMessage(errorData);
