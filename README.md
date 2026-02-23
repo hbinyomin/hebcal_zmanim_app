@@ -1,0 +1,1 @@
+A basic app runing on fastAPI that enables users to interact with hebcal.com's zmanim API.
